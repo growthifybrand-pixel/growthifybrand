@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: growthify-brand
+    runtime: docker
+    plan: starter
+    healthCheckPath: /
+    disk:
+      name: growthify-brand-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SITE_URL
+        sync: false
+      - key: SALES_EMAIL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM
+        sync: false
+      - key: CRM_WEBHOOK_URL
+        sync: false
